@@ -18,8 +18,8 @@ install:
 
   - mkdir ~/app
 
-  - wget http://files.configure.systems/Gemfile -O app/Gemfile
-  - wget http://files.configure.systems/Gemfile.lock -O app/Gemfile.lock
+  - wget http://files.configure.systems/Gemfile -O ~/app/Gemfile
+  - wget http://files.configure.systems/Gemfile.lock -O ~/app/Gemfile.lock
  
 script:
   # Check the role/playbook's syntax.
