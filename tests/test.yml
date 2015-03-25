@@ -3,4 +3,4 @@
 - hosts: localhost
   remote_user: travis
   roles:
-    - ansible-bundler
+    - ansible-bundle
