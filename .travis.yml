@@ -50,8 +50,4 @@ script:
     && (echo 'Default ruby test: pass' && exit 0)
     || (echo 'Default ruby test: fail' && exit 1)
 
-  - ~/.rvm/rubies/ruby-2.1.5/bin/gem list
-
-  - ls -al ~/.rvm/wrappers/default/
-
-  - ls -al ~
+  - ~/.rvm/wrappers/default/gem list
