@@ -1,0 +1,4 @@
+---
+
+- name: bundle install
+  raw: export PATH=${HOME}/.rvm/bin:${PATH && cd ~/app && bash -lc 'bundle install'
