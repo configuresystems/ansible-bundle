@@ -6,6 +6,7 @@ env:
   - SITE=test.yml
 
 before_install:
+  - '__rvm_unload ; rm -rf ~/.rvm'
   - sudo apt-get update -qq
   - sudo apt-get install -y curl python-pip python-apt gcc
   - git clone https://github.com/configuresystems/ansible-rvm.git ../ansible-rvm
@@ -42,6 +43,8 @@ script:
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+
+  - rvm reload
 
   - ls -al ~/.rvm
 
