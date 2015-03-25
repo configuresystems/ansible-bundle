@@ -4,11 +4,11 @@ python: "2.7"
 
 env:
   - SITE=test.yml
-  - PWD=$(pwd)
 
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y curl python-pip python-apt gcc
+  - PWD=$(pwd)
 
 install:
   # Install Ansible.
