@@ -26,15 +26,11 @@ script:
 
   - ansible-playbook -i tests/inventory/test tests/$SITE --syntax-check
 
-  - cd ${PWD}
-
   #  
   #                CREATE HTTP DEPLOYMENT
   #
   # Run the role/playbook with ansible-playbook.
   - ansible-playbook -i tests/inventory/test tests/$SITE --connection=local --sudo -vvv
-
-  - cd ${PWD}
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
@@ -42,8 +38,6 @@ script:
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
-
-  - cd ${PWD}
 
   - ls -al ~/
 
