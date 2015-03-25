@@ -28,7 +28,7 @@ script:
 
   - ansible-playbook -i tests/inventory/test tests/$SITE --syntax-check
 
-  - ansible-playbook -i ../ansible-rvm/tests/inventory ../ansible-rvm/tests/$SITE --connection=local -e "rvm1_rubies=['ruby-2.1.5']" --sudo
+  - ansible-playbook -i ../ansible-rvm/tests/inventory ../ansible-rvm/tests/$SITE --connection=local --sudo
 
   #  
   #                CREATE HTTP DEPLOYMENT
