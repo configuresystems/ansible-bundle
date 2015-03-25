@@ -8,7 +8,7 @@ env:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y curl python-pip python-apt gcc
-  - PWD=$(pwd)
+  - git clone https://github.com/configuresystems/ansible-rvm.git ../ansible-rvm
 
 install:
   # Install Ansible.
@@ -24,7 +24,11 @@ install:
 script:
   # Check the role/playbook's syntax.
 
+  - ansible-playbook -i ../ansible-rvm/tests/inventory ../ansible-rvm/tests/$SITE --syntax-check
+
   - ansible-playbook -i tests/inventory/test tests/$SITE --syntax-check
+
+  - ansible-playbook -i ../ansible-rvm/tests/inventory ../ansible-rvm/tests/$SITE --connection=local -e "rvm1_rubies=['ruby-2.1.5']" --sudo
 
   #  
   #                CREATE HTTP DEPLOYMENT
