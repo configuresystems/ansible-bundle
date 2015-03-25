@@ -35,7 +35,7 @@ script:
   #                CREATE HTTP DEPLOYMENT
   #
   # Run the role/playbook with ansible-playbook.
-  - ansible-playbook -i tests/inventory/test tests/$SITE --connection=local -vvv
+  - ansible-playbook -i tests/inventory/test tests/$SITE --connection=local
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
@@ -44,14 +44,10 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  - rvm reload
+  - >
+    ~/.rvm/wrappers/default/ruby -v
+    | grep -q '2.1.5'
+    && (echo 'Default ruby test: pass' && exit 0)
+    || (echo 'Default ruby test: fail' && exit 1)
 
-  - ls -al ~/.rvm
-
-  - ls -al ./
-
-  - pwd
-
-  - rvm env
-  
-  - gem env
+  - gem list
