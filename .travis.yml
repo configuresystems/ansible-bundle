@@ -39,8 +39,12 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  - ls -al ~/
+  - ls -al ~/.rvm
 
   - ls -al ./
 
   - pwd
+
+  - rvm env
+  
+  - gem env
